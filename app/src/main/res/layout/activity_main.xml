@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".MainActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="10dp">
+
+        <TextView
+            android:id="@+id/history_text"
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:layout_marginTop="75dp"
+            android:gravity="end|bottom" />
+
+        <TextView
+            android:id="@+id/main_text"
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:gravity="end|bottom"
+            android:text="@string/set_text"
+            android:textSize="30sp" />
+
+    </LinearLayout>
+
+    <GridLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:columnCount="4"
+        android:padding="5dp"
+        android:rowCount="5">
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btn_backspace"
+            style="@style/number_btns"
+            android:layout_columnSpan="2"
+            android:text="@string/backspace_btn" />
+
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btn_percent"
+            style="@style/number_btns"
+            android:text="@string/btn_percent" />
+
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btn_minus"
+            style="@style/number_btns"
+            android:text="@string/btn_minus" />
+
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:onClick="btn_one"
+            android:id="@+id/btn_1"
+            style="@style/number_btns"
+            android:text="@string/btn_1" />
+
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btn_2"
+            style="@style/number_btns"
+            android:text="@string/btn_2" />
+
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btn_3"
+            style="@style/number_btns"
+            android:text="@string/btn_3" />
+
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btn_devision"
+            style="@style/number_btns"
+            android:text="@string/btn_devision" />
+
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btn_4"
+            style="@style/number_btns"
+            android:text="@string/btn_4" />
+
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btn_5"
+            style="@style/number_btns"
+            android:text="@string/btn_5" />
+
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btn_6"
+            style="@style/number_btns"
+            android:text="@string/btn_6" />
+
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btn_multipl"
+            style="@style/number_btns"
+            android:text="@string/btn_multiply" />
+
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btn_7"
+            style="@style/number_btns"
+            android:text="@string/btn_7" />
+
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btn_8"
+            style="@style/number_btns"
+            android:text="@string/btn_8" />
+
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btn_9"
+            style="@style/number_btns"
+            android:text="@string/btn_9" />
+
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btn_plus"
+            style="@style/number_btns"
+            android:text="@string/btn_plus" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btn_dot"
+            style="@style/number_btns"
+            android:text="@string/btn_dot" />
+
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btn_null"
+            style="@style/number_btns"
+            android:text="@string/btn_null" />
+
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btn_result"
+            style="@style/result_btn"
+            android:layout_columnSpan="2"
+            android:text="@string/btn_result" />
+
+
+    </GridLayout>
+
+</LinearLayout>
