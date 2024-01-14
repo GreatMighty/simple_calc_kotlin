@@ -2,7 +2,7 @@
     <string name="app_name">simple_calc_kotlin</string>
     <string name="backspace_btn">backspace</string>
     <string name="set_text">Введите сумму</string>
-    <string name="btn_percent">%</string>
+    <string name="btn_allClear">AC</string>
     <string name="btn_minus">-</string>
     <string name="btn_2">2</string>
     <string name="btn_3">3</string>

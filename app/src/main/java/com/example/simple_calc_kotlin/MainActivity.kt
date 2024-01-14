@@ -2,9 +2,12 @@ package com.example.simple_calc_kotlin
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import com.example.simple_calc_kotlin.databinding.ActivityMainBinding
+import net.objecthunter.exp4j.ExpressionBuilder
 
 class MainActivity : AppCompatActivity() {
+
 
     private lateinit var binding:ActivityMainBinding
 
@@ -14,8 +17,9 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-
         actionsBtns()
+        btnResult()
+        btnAllClear()
 
     }
     fun actionsBtns() {
@@ -31,35 +35,52 @@ class MainActivity : AppCompatActivity() {
         binding.btn9.setOnClickListener { mainTextActions ("9") }
         binding.btnNull.setOnClickListener { mainTextActions ("0") }
 
-        binding.btnPlus.setOnClickListener { mainTextActions ("+") }
-        binding.btnPercent.setOnClickListener { mainTextActions ("%") }
-        binding.btnMinus.setOnClickListener { mainTextActions ("-") }
-        binding.btnMultipl.setOnClickListener { mainTextActions ("*") }
-        binding.btnDot.setOnClickListener { mainTextActions (".") }
-        binding.btnDevision.setOnClickListener { mainTextActions ("/") }
+        binding.btnPlus.setOnClickListener { if (binding.historyText.text.isNotEmpty()){mainTextActions ("+") }}
+        binding.btnMinus.setOnClickListener { if (binding.historyText.text.isNotEmpty())mainTextActions ("-") }
+        binding.btnMultipl.setOnClickListener { if (binding.historyText.text.isNotEmpty())mainTextActions ("*") }
+        binding.btnDot.setOnClickListener { if (binding.historyText.text.isNotEmpty())mainTextActions (".") }
+        binding.btnDevision.setOnClickListener { if (binding.historyText.text.isNotEmpty())mainTextActions ("/") }
 
         binding.btnBackspace.setOnClickListener { btnBackspaceAction() }
     }
 
     fun mainTextActions(str: String){
-        binding.mainText.append(str)
+        binding.historyText.append(str)
     }
 
     fun btnBackspaceAction (){
         binding.btnBackspace.setOnClickListener {
-            val textMainVeiw = binding.mainText.text.toString()
+            val textMainVeiw = binding.historyText.text.toString()
             if (textMainVeiw.isNotEmpty()){
-                binding.mainText.text = textMainVeiw.substring(0, textMainVeiw.length -1)
-                binding.historyText.text = ""
+                binding.mainText.text = ""
+                binding.historyText.text = textMainVeiw.substring(0, textMainVeiw.length -1)
             }
         }
     }
 
-    fun calculatelogic() {
-
+    fun btnAllClear (){
+        binding.btnAllClear.setOnClickListener {
+            binding.mainText.text = ""
+            binding.historyText.text = ""
+        }
     }
 
+    fun btnResult (){
+        binding.btnResult.setOnClickListener {
+            try {
+                val ex = ExpressionBuilder(binding.historyText.text.toString()).build()
+                val result = ex.evaluate()
+                val longRes = result.toLong()
+                if (result == longRes.toDouble())
+                    binding.mainText.text = longRes.toString()
+                else
+                    binding.mainText.text = result.toString()
 
+            }catch (e:Exception) {
+                    Log.d("Ошибка", "Сообзение: ${e.message}")
+            }
+        }
+    }
 }
 
 
